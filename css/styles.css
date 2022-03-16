@@ -1264,6 +1264,7 @@ section#amenities img.amenities-main {
 
 section#amenities .amenities-wrapper {
     position: relative;
+    flex: 1 1 0;
 }
 
 section#amenities.open .amenities-wrapper {
@@ -1284,9 +1285,6 @@ section#amenities ul#amul {
 }
 
 section#amenities.open ul#amul {
-    /*    margin-left: -70%;*/
-    /*    position: absolute;*/
-    margin-left: -70%;
     margin-top: 20px;
     margin-bottom: 10px;
 }
@@ -1331,12 +1329,14 @@ section#amenities ul#amul li.fadeIn {
 
 section#amenities ul#amul li.vis {
     width: 56%;
+    max-width: 120px;
     opacity: 1;
     background-color: #8ab2ab;
 }
 
 section#amenities ul#amul li.hid {
     width: 53%;
+    max-width: 90px;
 }
 
 section#amenities ul#amul li img {
@@ -1517,6 +1517,7 @@ section#amenities.open.act6 .space6 {
 
 section#amenities .amenitieslocations {
     position: relative;
+    flex: 2.5 1 0;
 }
 
 section#amenities .amenityimg {
@@ -2924,6 +2925,15 @@ section#contact .contact-wrapper .sending {
 }
 
 @media screen and (min-width: 1000px){
+    #intro,
+    #masterplan,
+    #principles,
+    #amenities{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     section#intro .introhomalogo{
         max-width: 50%;
         margin: 0px auto;
@@ -2962,8 +2972,21 @@ section#contact .contact-wrapper .sending {
         margin-top: -80px;
     }
 
+    #amenities > .section-wrapper{
+        max-width: 100%;
+    }
+
+    section#amenities ul#amul li.fadeIn {
+        max-width: 70px;    
+    }
+
+    section#amenities ul#amul li.vis {
+        max-width: 100px;
+    }
+
     
-}
+    
+}*/
 
 
 

@@ -283,9 +283,9 @@
     </section>
     <section class="" id="amenities">
         <div class="section-wrapper">
-            <div class="col coltxt">
-                <h1 class="">Holistic</h1>
-                <h1 class="">experience</h1>
+            <h1 class="fade fadeIn">Holistic</h1>
+            <h1 class="fade fadeIn">experience</h1>
+            <div class="wide-wrapper">
                 <div class="amenitieslocations">
                     <img src="images/amenities/amenities-main.jpg" alt="Amenities" class="amenities-main ">
                     <img src="images/amenities/mind-body.jpg" alt="Amenities" class="amenityimg amenityimg1">
@@ -297,14 +297,13 @@
                 </div>
                 <div class="amenities-wrapper">
                     <ul id="amul">
-                        <li class=' mpb' data-id='act1'><span class='bullet'><img src='images/icons/amenities/mind-body.svg'></span><span class='text'>Mind <span class="amp">&amp;</span> Body</span></li>
-                        <li class=' mpb' data-id='act2'><span class='bullet'><img src='images/icons/amenities/relaxation.svg'></span><span class='text'>Relaxation <span class="amp">&amp;</span> Enjoyment</span></li>
-                        <li class=' mpb' data-id='act3'><span class='bullet'><img src='images/icons/amenities/networking.svg'></span><span class='text'>Creativity <span class="amp">&amp;</span> Networking</span></li>
-                        <li class=' mpb' data-id='act4'><span class='bullet'><img src='images/icons/amenities/general-services.svg'></span><span class='text'>General services</span></li>
-                        <li class=' mpb' data-id='act5'><span class='bullet'><img src='images/icons/amenities/sustainable.svg'></span><span class='text'>Sustainable mobility</span></li>
-                        <li class=' mpb' data-id='act6'><span class='bullet'><img src='images/icons/amenities/partnerships.svg'></span><span class='text'>Partnerships <span class="amp">&amp;</span> food</span></li>
+                        <li class=' fade fadeIn mpb' data-id='act1'><span class='bullet'><img src='images/icons/amenities/mind-body.svg'></span><span class='text'>Mind <span class="amp">&amp;</span> Body</span></li>
+                        <li class=' fade fadeIn mpb' data-id='act2'><span class='bullet'><img src='images/icons/amenities/relaxation.svg'></span><span class='text'>Relaxation <span class="amp">&amp;</span> Enjoyment</span></li>
+                        <li class=' fade fadeIn mpb' data-id='act3'><span class='bullet'><img src='images/icons/amenities/networking.svg'></span><span class='text'>Creativity <span class="amp">&amp;</span> Networking</span></li>
+                        <li class=' fade fadeIn mpb' data-id='act4'><span class='bullet'><img src='images/icons/amenities/general-services.svg'></span><span class='text'>General services</span></li>
+                        <li class=' fade fadeIn mpb' data-id='act5'><span class='bullet'><img src='images/icons/amenities/sustainable.svg'></span><span class='text'>Sustainable mobility</span></li>
+                        <li class=' fade fadeIn mpb' data-id='act6'><span class='bullet'><img src='images/icons/amenities/partnerships.svg'></span><span class='text'>Partnerships <span class="amp">&amp;</span> food</span></li>
                     </ul>
-                    <div class="close hid"></div>
                     <div class="amenities-stage hid">
                         <div class="space space1">
                             <h2>Mind <span class="amp">&amp;</span>&nbsp; Body</h2>
@@ -739,7 +738,50 @@
     <script src="js/splide.min.js"></script>
 
     <script>
-        // Monat el splide de Masterplan
+        let amenitiesOpened = false
+        let amenityOpened = ""
+
+        $('section#amenities .mpb').on('click', function(e) {
+            if (amenitiesOpened && amenityOpened == $(this).attr('data-id')) {
+                //close
+                amenitiesOpened = false
+                amenityOpened = ""
+                $('#amenities .mpb').removeClass('vis').removeClass('hid');
+                $('#amenities .mpb .text').removeClass('vis').removeClass('hid');
+                $('#amenities').removeClass();
+                $('section#amenities  p.mpp').slideDown(700);
+                $('section#amenities .amenities-stage').addClass('hid');
+                $('section#amenities .close').addClass('hid');
+
+                $('html, body').delay(300).animate({
+                    scrollTop: $("#amenities").offset().top
+                });
+
+            } else {
+                //open
+                amenitiesOpened = true
+                amenityOpened = $(this).attr('data-id')
+                $('section#amenities .mpb').removeClass('vis').addClass('hid');
+                $('section#amenities .mpb .text').removeClass('vis').addClass('hid');
+                $(this).removeClass('hid').addClass('vis');
+                $('section#amenities mpb.hid').slideUp();
+                let cl = $(this).attr('data-id');
+                $('section#amenities  p.mpp').slideUp(700);
+                $('#amenities').removeClass();
+                $('#amenities').addClass('open').addClass(cl);
+                $('section#amenities .amenities-stage').removeClass('hid');
+                //                    $('section#amenities .close').removeClass('hid');
+
+
+                $('html, body').animate({
+                    scrollTop: $("#amenities").offset().top
+                });
+            }
+
+
+        });
+
+        // Montar el splide de Masterplan
         new Splide('#masterplan-slider',{
             type   : 'loop',
             arrows: false
@@ -768,6 +810,7 @@
             arrows: false
         }).mount()
 
+        
         
     </script>
     
