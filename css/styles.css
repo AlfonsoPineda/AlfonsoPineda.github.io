@@ -177,7 +177,7 @@ Beige: D9C89D
 
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -209,8 +209,9 @@ body.overflowhidden {
 .separator{
     
     position: absolute;
-    left: 0;
+    left: -1px;
     bottom: 0;
+    right: -2px;
     
 }
 
@@ -1180,7 +1181,7 @@ section#honest p.general {
 }
 
 section#honest #honestmaterials-slider {
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -2922,6 +2923,47 @@ section#contact .contact-wrapper .sending {
     }
 }
 
+@media screen and (min-width: 1000px){
+    section#intro .introhomalogo{
+        max-width: 50%;
+        margin: 0px auto;
+    }
+    section#intro .section-wrapper{
+        display: flex;
+        /*max-width: 500px;*/
+        margin: 0 auto;
+        position: relative;
+    }
+    section#intro .section-wrapper div:nth-child(2){
+        flex-basis: 150%;
+    }
+
+    .section-wrapper {
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .wide-wrapper{
+        display: flex;
+        align-items: center;
+    } 
+
+    #intro .left-col{
+        flex-basis: 60%;
+    }
+
+    #masterplan .left-col{
+        flex-basis: 65%;
+        margin-top: 40px;
+    }
+
+    #masterplan .right-col{
+        margin-top: -80px;
+    }
+
+    
+}
 
 
 
