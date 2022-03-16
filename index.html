@@ -739,10 +739,16 @@
         }).mount()
 
         new Splide('#honestmaterials-slider',{
-            type   : 'loop',
-            //arrows: false
-            //focus: 'center',    
-            //autoWidth: true,
+            type: 'slide',
+            arrows: false,
+            autoplay: false,
+            interval: 8000,
+            lazyLoad: 'nearby',
+            perPage: 3,
+            perMove: 1,
+            padding: '3em',
+            gap: '1em',
+            pagination: false,
         }).mount()
 
         new Splide('#space0-slider',{
